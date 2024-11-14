@@ -1,0 +1,37 @@
+<div class="title-container">
+    <div class="container" style="text-align: center;margin:5%">
+        <h1>Registro de Actividades</h1>
+    </div>
+    <div class="container" style="text-align: center">
+        <form [formGroup]="form" (submit)="insertar()">
+
+            <mat-form-field class="example-full-width" *ngIf="edicion">
+                <mat-label>Código</mat-label>
+                <input matInput formControlName="hcodigo" readonly="true" />
+            </mat-form-field>
+            <br />
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Actividad</mat-label>
+                <input matInput placeholder="Ejem. Paseo Maritimo" formControlName="hnombre" />
+            </mat-form-field>
+            <br />
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Descripción</mat-label>
+                <input matInput placeholder="Ejem. El paseo consiste..." formControlName="hdescripcion" />
+            </mat-form-field>
+            <br />
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Costo</mat-label>
+                <input matInput placeholder="Ejem. 1000" formControlName="hcosto" />
+            </mat-form-field>
+            <br />
+
+            <div style="text-align: center;">
+                <button mat-flat-button color="warn">Registrar</button>
+            </div>
+        </form>
+    </div>
+</div>
