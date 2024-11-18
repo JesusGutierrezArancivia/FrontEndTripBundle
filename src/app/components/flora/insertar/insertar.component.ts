@@ -33,7 +33,11 @@ export class InsertarFloraComponent {
   flora: Flora = new Flora();
   id: number = 0;
   edicion: boolean = false;
-
+  listaEstados: { value: string; viewValue: string }[] = [
+    { value: 'Extincion', viewValue: 'Extincion' },
+    { value: 'Amenazado', viewValue: 'Amenazado' },
+    { value: 'Preocupacion menor', viewValue: 'Preocupacion menor' },
+  ];
   constructor(
     private fS: FloraService,
     private formBuilder: FormBuilder,

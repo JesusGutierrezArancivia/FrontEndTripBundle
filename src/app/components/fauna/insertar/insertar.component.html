@@ -35,11 +35,17 @@
             </mat-form-field>
             <br />
 
-            <mat-form-field class="example-full-width">
+            <mat-form-field>
                 <mat-label>Estado</mat-label>
-                <input matInput placeholder="Ejem. Lima" formControlName="hestado" />
-            </mat-form-field>
-            <br />
+                <mat-select formControlName="hestado">
+                  <mat-option *ngFor="let p of listaEstados" [value]="p.value">
+                    {{ p.viewValue }}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('hestado')?.hasError('required')"
+                  >El estado es obligatorio.</mat-error
+                >
+              </mat-form-field>
 
 
             <div style="text-align: center;">
