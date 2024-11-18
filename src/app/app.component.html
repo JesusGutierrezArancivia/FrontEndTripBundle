@@ -4,9 +4,6 @@
     <button mat-button [matMenuTriggerFor]="menuCiudad" style="color: white">
       <mat-icon>menu</mat-icon>Ciudad
     </button>
-    <button mat-button [matMenuTriggerFor]="menuActividad" style="color: white">
-      <mat-icon>menu</mat-icon>Actividad
-    </button>
     <button mat-button [matMenuTriggerFor]="menuFauna" style="color: white">
       <mat-icon>menu</mat-icon>Fauna
     </button>
@@ -18,10 +15,6 @@
 <mat-menu #menuCiudad="matMenu">
   <button mat-menu-item routerLink="/ciudades">Listar ciudades</button>
   <button mat-menu-item routerLink="/ciudades/nuevo">Registrar ciudades</button>
-</mat-menu>
-<mat-menu #menuActividad="matMenu">
-  <button mat-menu-item routerLink="/actividades">Listar actividades</button>
-  <button mat-menu-item routerLink="/actividades/nuevo">Registrar actividad</button>
 </mat-menu>
 <mat-menu #menuFauna="matMenu">
   <button mat-menu-item routerLink="/faunas">Listar faunas</button>
