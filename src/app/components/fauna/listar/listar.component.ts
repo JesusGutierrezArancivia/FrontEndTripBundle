@@ -3,18 +3,29 @@ import { Fauna } from '../../../models/Fauna';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table'
 import { FaunaService } from '../../../services/fauna.service';
 import { MatIconModule } from '@angular/material/icon';
-import { RouterModule } from '@angular/router';
+import { RouterLink } from '@angular/router';
+import { MatFormField } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule} from '@angular/material/card';
+import { CommonModule } from '@angular/common';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+
 
 @Component({
-  selector: 'app-listar',
+  selector: 'app-listar-fauna',
   standalone: true,
-  imports: [MatTableModule, MatIconModule,RouterModule],
+  imports: [MatCardModule,MatTableModule, MatIconModule,RouterLink,
+    MatFormField,
+    MatInputModule,
+    MatButtonModule,
+    CommonModule,
+    ReactiveFormsModule],
   templateUrl: './listar.component.html',
   styleUrl: './listar.component.css'
 })
-export class ListarComponent implements OnInit{
+export class ListarFaunaComponent implements OnInit{
   datasource: MatTableDataSource<Fauna> = new MatTableDataSource();
-  displayedColumns: string[] = ['c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'accion01','accion02'];
 
   constructor(private fS: FaunaService) {}
   ngOnInit(): void {

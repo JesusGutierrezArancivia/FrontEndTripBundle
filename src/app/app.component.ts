@@ -9,6 +9,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { LoginService } from './services/login.service';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -16,10 +18,28 @@ import { MatButtonModule } from '@angular/material/button';
     RouterLink,
     MatMenuModule,
     MatIconModule,
-    MatButtonModule],
+    MatButtonModule,
+    CommonModule,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'TripBundleProject';
+  role: string = '';
+  constructor(private loginService: LoginService) {}
+  cerrar() {
+    sessionStorage.clear();
+  }
+  verificar() {
+    this.role = this.loginService.showRole();
+    return this.loginService.verificar();
+  }
+  isTourist() {
+    return this.role === 'TOURIST';
+  }
+
+  isAdmin() {
+    return this.role === 'ADMIN';
+  }
 }

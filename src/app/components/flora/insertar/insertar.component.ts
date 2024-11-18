@@ -16,7 +16,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 @Component({
-  selector: 'app-insertar',
+  selector: 'app-insertar-flora',
   standalone: true,
   imports: [MatInputModule,
     MatFormFieldModule,
@@ -78,6 +78,7 @@ export class InsertarFloraComponent {
       } else {
         //insert
         this.fS.insert(this.flora).subscribe((data) => {
+          console.log(data);
           this.fS.list().subscribe((data) => {
             this.fS.setList(data);
           });

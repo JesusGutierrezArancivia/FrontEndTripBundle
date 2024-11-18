@@ -9,7 +9,19 @@ import { FaunaComponent } from './components/fauna/fauna.component';
 import { FloraComponent } from './components/flora/flora.component';
 import { ActivityComponent } from './components/activity/activity.component';
 import { InsertarActivityComponent } from './components/activity/insertar/insertar.component';
+import { seguridadGuard } from './guard/seguridad.guard';
+import { LoginComponent } from './components/login/login.component';
+import { HomeComponent } from './components/home/home.component';
 export const routes: Routes = [
+    {
+        path: '',
+        redirectTo: 'login',
+        pathMatch: 'full',
+    },
+    {
+        path: 'login',
+        component: LoginComponent,
+    },
     {
         path: 'ciudades',
         component: CityComponent,
@@ -21,19 +33,21 @@ export const routes: Routes = [
                 path: 'ediciones/:id', component: InsertarCityComponent
             }
         ],
+        canActivate: [seguridadGuard],
 
     },
     {
-        path:'actividades',
+        path: 'actividades',
         component: ActivityComponent,
-        children:[
+        children: [
             {
-                path:'nuevo', component:InsertarActivityComponent
+                path: 'nuevo', component: InsertarActivityComponent
             },
             {
-                path:'ediciones/:id', component: InsertarActivityComponent
+                path: 'ediciones/:id', component: InsertarActivityComponent
             }
         ],
+        canActivate: [seguridadGuard],
     },
     {
         path: 'faunas',
@@ -46,6 +60,7 @@ export const routes: Routes = [
                 path: 'ediciones/:id', component: InsertarFaunaComponent
             }
         ],
+        canActivate: [seguridadGuard],
 
     },
     {
@@ -59,6 +74,12 @@ export const routes: Routes = [
                 path: 'ediciones/:id', component: InsertarFloraComponent
             }
         ],
+        canActivate: [seguridadGuard],
 
+    },
+    {
+        path: 'homes',
+        component: HomeComponent,
+        canActivate: [seguridadGuard],
     },
 ];

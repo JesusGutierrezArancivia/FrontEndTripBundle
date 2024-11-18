@@ -84,7 +84,7 @@ export class InsertarActivityComponent implements OnInit {
 
       /**/
     }
-    this.router.navigate(['adtividades']);
+    this.router.navigate(['actividades']);
   }
   init() {
     if (this.edicion) {

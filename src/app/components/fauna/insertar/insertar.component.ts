@@ -16,7 +16,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 @Component({
-  selector: 'app-insertar',
+  selector: 'app-insertar-fauna',
   standalone: true,
   imports: [MatInputModule,
     MatFormFieldModule,

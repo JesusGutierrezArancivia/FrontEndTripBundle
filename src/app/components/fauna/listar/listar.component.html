@@ -1,53 +1,27 @@
 <div class="container">
-    <div style="text-align: center; margin: 5%"><h1>Lista de fauna</h1></div>
-    <div>
-      <table mat-table [dataSource]="datasource" class="mat-elevation-z8">
-        <ng-container matColumnDef="c1">
-          <th mat-header-cell *matHeaderCellDef>Código.</th>
-          <td mat-cell *matCellDef="let element">{{ element.idFauna }}</td>
-        </ng-container>
-  
-        <ng-container matColumnDef="c2">
-          <th mat-header-cell *matHeaderCellDef>Fauna</th>
-          <td mat-cell *matCellDef="let element">{{ element.nameFauna }}</td>
-        </ng-container>
-  
-        <ng-container matColumnDef="c3">
-          <th mat-header-cell *matHeaderCellDef>Familia</th>
-          <td mat-cell *matCellDef="let element">{{ element.familyFauna }}</td>
-        </ng-container>
-  
-        <ng-container matColumnDef="c4">
-          <th mat-header-cell *matHeaderCellDef>Latitud</th>
-          <td mat-cell *matCellDef="let element">{{ element.latitudeFauna }}</td>
-        </ng-container>
-  
-        <ng-container matColumnDef="c5">
-          <th mat-header-cell *matHeaderCellDef>Longitud</th>
-          <td mat-cell *matCellDef="let element">{{ element.lengthFauna }}</td>
-        </ng-container>
-
-        <ng-container matColumnDef="c6">
-            <th mat-header-cell *matHeaderCellDef>Estado</th>
-            <td mat-cell *matCellDef="let element">{{ element.lengthFauna }}</td>
-          </ng-container>
-  
-        <ng-container matColumnDef="accion01">
-          <th mat-header-cell *matHeaderCellDef>Eliminar</th>
-          <td mat-cell *matCellDef="let element" (click)="delete(element.idFauna)">
-            <mat-icon style="color:#f4310a ;">delete</mat-icon>
-          </td> 
-        </ng-container>
-        <ng-container matColumnDef="accion02">
-          <th mat-header-cell *matHeaderCellDef>Actualizar</th>
-          <td mat-cell *matCellDef="let element" [routerLink]="['ediciones',element.idFauna]" >
-            <mat-icon style="color:#f4310a ;">edit</mat-icon>
-          </td> 
-        </ng-container>
-  
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-      </table>
-    </div>
+  <div style="text-align: center; margin: 5%">
+    <h1>Lista de fauna</h1>
   </div>
-  
+  <div class="card-container" *ngFor="let element of datasource.data">
+    <mat-card class="fauna-card mat-elevation-z8">
+      <mat-card-header>
+        <mat-card-title>Código: {{ element.idFauna }}</mat-card-title>
+        <mat-card-subtitle>Fauna: {{ element.nameFauna }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p><strong>Familia:</strong> {{ element.familyFauna }}</p>
+        <p><strong>Latitud:</strong> {{ element.latitudeFauna }}</p>
+        <p><strong>Longitud:</strong> {{ element.lengthFauna }}</p>
+        <p><strong>Estado:</strong> {{ element.stateFauna }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button color="primary" [routerLink]="['ediciones', element.idFauna]">
+          <mat-icon>edit</mat-icon> Actualizar
+        </button>
+        <button mat-button color="warn" (click)="delete(element.idFauna)">
+          <mat-icon>delete</mat-icon> Eliminar
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

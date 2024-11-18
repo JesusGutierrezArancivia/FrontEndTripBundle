@@ -4,17 +4,18 @@ import {MatTableDataSource, MatTableModule} from '@angular/material/table'
 import { CityService } from '../../../services/city.service';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
+import { MatCardModule} from '@angular/material/card';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-listar',
   standalone: true,
-  imports: [MatTableModule, MatIconModule,RouterModule],
+  imports: [MatCardModule,MatTableModule, MatIconModule,RouterModule,CommonModule],
   templateUrl: './listar.component.html',
   styleUrl: './listar.component.css'
 })
 export class ListarComponent implements OnInit{
   datasource: MatTableDataSource<City> = new MatTableDataSource();
-  displayedColumns: string[] = ['c1', 'c2', 'c3', 'c4', 'c5', 'c6','accion01','accion02'];
 
   constructor(private cS: CityService) {}
   ngOnInit(): void {

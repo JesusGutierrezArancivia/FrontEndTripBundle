@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
-import { ListarComponent } from './listar/listar.component';
+import { ListarActividadComponent } from './listar/listar.component';
 
 @Component({
   selector: 'app-activity',
   standalone: true,
-  imports: [RouterOutlet,ListarComponent],
+  imports: [RouterOutlet,ListarActividadComponent],
   templateUrl: './activity.component.html',
   styleUrl: './activity.component.css'
 })

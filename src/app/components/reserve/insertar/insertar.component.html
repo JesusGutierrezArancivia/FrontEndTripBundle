@@ -1,0 +1,72 @@
+<div class="title-container">
+    <div class="container" style="text-align: center;margin:5%">
+        <h1>Registro de Faunas</h1>
+    </div>
+    <div class="container" style="text-align: center">
+        <form [formGroup]="form" (submit)="insertar()">
+
+            <mat-form-field class="example-full-width" *ngIf="edicion">
+                <mat-label>Código</mat-label>
+                <input matInput formControlName="hcodigo" readonly="true" />
+            </mat-form-field>
+            <br />
+
+            <mat-form-field>
+                <mat-label>Fecha</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="hfecha">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="form.get('hfecha')?.hasError('required')"
+                >La fecha es obligatoria.</mat-error
+              >
+              </mat-form-field> 
+              <br />
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Descripción</mat-label>
+                <textarea matInput placeholder="Textarea" formControlName="hdescripcion"></textarea>
+                <mat-error *ngIf="form.get('hdescripcion')?.hasError('required')"
+                  >La descripción es obligatoria.</mat-error
+                >
+              </mat-form-field>
+              <br/>
+
+              <mat-form-field class="example-full-width">
+                <mat-label>Hora</mat-label>
+                <input matInput type="time" formControlName="hhora" />
+                <mat-error *ngIf="form.get('hhora')?.hasError('required')">
+                  La hora es obligatoria.
+                </mat-error>
+              </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Actividad</mat-label>
+                <mat-select formControlName="hactividad">
+                    <mat-option *ngFor="let a of listaActividades" [value]="a.idActivity">
+                        {{a.nameActivity}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('hactividad')?.hasError('required')">La actividad es obligatoria.</mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Ciudad</mat-label>
+                <mat-select formControlName="hciudad">
+                    <mat-option *ngFor="let c of listaCiudades" [value]="c.idCity">
+                        {{c.nameCity}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('hciudad')?.hasError('required')">La ciudad es obligatoria.</mat-error>
+
+            </mat-form-field>
+
+
+
+            <div style="text-align: center;">
+                <button mat-flat-button color="warn">Registrar</button>
+            </div>
+        </form>
+    </div>
+</div>

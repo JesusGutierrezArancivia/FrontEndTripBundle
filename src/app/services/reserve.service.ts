@@ -1,30 +1,30 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Flora } from '../models/Flora';
+import { Reserve } from '../models/Reserve';
 import { Subject } from 'rxjs';
 const base_url=environment.base
 
 @Injectable({
   providedIn: 'root'
 })
-export class FloraService {
-  private url = `${base_url}/floras`;
-  private listaCambio = new Subject<Flora[]>();
+export class ReserveService {
+  private url = `${base_url}/reservas`;
+  private listaCambio = new Subject<Reserve[]>();
 
   constructor(private http: HttpClient) {}
 
   list() {
-    return this.http.get<Flora[]>(this.url);
+    return this.http.get<Reserve[]>(this.url);
   }
-  insert(f: Flora) {
-    return this.http.post(this.url, f);
+  insert(r: Reserve) {
+    return this.http.post(this.url, r);
   }
   getList() {
     return this.listaCambio.asObservable();
   }
 
-  setList(listaNueva: Flora[]) {
+  setList(listaNueva: Reserve[]) {
     this.listaCambio.next(listaNueva);
   }
 
@@ -33,9 +33,9 @@ export class FloraService {
   }
 
   listId(id: number) {
-    return this.http.get<Flora>(`${this.url}/${id}`);
+    return this.http.get<Reserve>(`${this.url}/${id}`);
   }
-  update(fi: Flora) {
-    return this.http.put(this.url, fi);
+  update(ri: Reserve) {
+    return this.http.put(this.url, ri);
   }
 }
