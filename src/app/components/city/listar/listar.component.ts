@@ -6,10 +6,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import {GoogleMap, GoogleMapsModule, MapAdvancedMarker} from '@angular/google-maps';
 import { CommonModule } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
 @Component({
   selector: 'app-listar',
   standalone: true,
-  imports: [MatTableModule, MatIconModule,RouterModule,GoogleMap,GoogleMapsModule,MapAdvancedMarker, CommonModule],
+  imports: [MatTableModule, MatIconModule,RouterModule,GoogleMap,GoogleMapsModule,MapAdvancedMarker, CommonModule,MatCardModule],
   templateUrl: './listar.component.html',
   styleUrl: './listar.component.css'
 })
@@ -39,11 +40,11 @@ export class ListarComponent implements OnInit{
     });
   }
   center: google.maps.LatLngLiteral = {lat: -9.19, lng: -75.0152};
-  zoom = 5;
+  zoom = 6;
   showCityDetails(city: City) {
     this.selectedCity = city;
-    this.center = { lat: city.latitudeCity, lng: city.lengthCity }; // Centra el mapa en la ciudad seleccionada
-    this.zoom = 10; // Ajusta el zoom para acercar el marcador
+    this.center = { lat: city.latitudeCity, lng: city.lengthCity }; // Centra mapa
+    this.zoom = 10; 
   }
 
 

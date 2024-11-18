@@ -10,7 +10,7 @@ html, body {
 }
   
   
-.info-panel {
+.card-container-city {
   width: 30%; /* Ancho del panel de información */
   padding: 20px;
   background-color: #f5f5f5;
