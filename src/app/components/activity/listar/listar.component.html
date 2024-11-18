@@ -1,1 +1,16 @@
+<<<<<<< Updated upstream
 <p>listar works!</p>
+=======
+<div class="card-container-activity">
+  <mat-card *ngFor="let activity of actividades" class="activity-card">
+    <mat-card-header>
+      <mat-card-title>{{ activity.nameActivity }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{ activity.descriptionActivity }}</p>
+      <br>
+      <p>{{ activity.costActivity }}</p>
+    </mat-card-content>
+  </mat-card>
+</div>
+>>>>>>> Stashed changes

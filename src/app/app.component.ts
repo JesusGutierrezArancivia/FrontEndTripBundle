@@ -16,7 +16,8 @@ import { MatButtonModule } from '@angular/material/button';
     RouterLink,
     MatMenuModule,
     MatIconModule,
-    MatButtonModule],
+    MatButtonModule,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

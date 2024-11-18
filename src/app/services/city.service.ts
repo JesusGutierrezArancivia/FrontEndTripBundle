@@ -29,6 +29,9 @@ export class CityService {
   setList(listaNueva: City[]) {
     this.listaCambio.next(listaNueva);
   }
+  getCities(): Observable<City[]> {
+    return this.http.get<City[]>(this.url);
+  }
 
   delete(id: number) {
     return this.http.delete(`${this.url}/${id}`);

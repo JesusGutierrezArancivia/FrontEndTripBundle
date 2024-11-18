@@ -1,9 +1,10 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { City } from '../../../models/City';
-import {MatTableDataSource, MatTableModule} from '@angular/material/table'
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { CityService } from '../../../services/city.service';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
+<<<<<<< Updated upstream
 import {GoogleMap, GoogleMapsModule, MapAdvancedMarker} from '@angular/google-maps';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
@@ -11,14 +12,46 @@ import { MatCardModule } from '@angular/material/card';
   selector: 'app-listar',
   standalone: true,
   imports: [MatTableModule, MatIconModule,RouterModule,GoogleMap,GoogleMapsModule,MapAdvancedMarker, CommonModule,MatCardModule],
+=======
+import { CommonModule } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
+import {GoogleMap, GoogleMapsModule, MapAdvancedMarker} from '@angular/google-maps';
+
+@Component({
+  selector: 'app-listar',
+  standalone: true,
+  imports: [
+    MatTableModule,
+    MatIconModule,
+    RouterModule,
+    CommonModule,
+    MatCardModule,GoogleMap,GoogleMapsModule,MapAdvancedMarker
+  ],
+>>>>>>> Stashed changes
   templateUrl: './listar.component.html',
-  styleUrl: './listar.component.css'
+  styleUrl: './listar.component.css',
 })
-export class ListarComponent implements OnInit{
+export class ListarComponent implements OnInit {
   datasource: MatTableDataSource<City> = new MatTableDataSource();
+<<<<<<< Updated upstream
   displayedColumns: string[] = ['c1', 'c2', 'c3', 'c4', 'c5', 'c6','accion01','accion02'];
   cities: City[] = [];
   selectedCity: City | null = null;
+=======
+  displayedColumns: string[] = [
+    'c1',
+    'c2',
+    'c3',
+    'c4',
+    'c5',
+    'c6',
+    'accion01',
+    'accion02',
+  ];
+  cities: City[] = [];
+  selectedCity: City | null = null;
+
+>>>>>>> Stashed changes
   constructor(private cS: CityService) {}
   ngOnInit(): void {
     this.cS.list().subscribe((data) => {
@@ -27,6 +60,10 @@ export class ListarComponent implements OnInit{
     this.cS.getList().subscribe((data) => {
       this.datasource = new MatTableDataSource(data);
     });
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
     this.cS.getCities().subscribe((data: City[]) => {
       this.cities = data;
     });
@@ -40,12 +77,17 @@ export class ListarComponent implements OnInit{
     });
   }
   center: google.maps.LatLngLiteral = {lat: -9.19, lng: -75.0152};
+<<<<<<< Updated upstream
   zoom = 6;
+=======
+  zoom = 5;
+>>>>>>> Stashed changes
   showCityDetails(city: City) {
     this.selectedCity = city;
     this.center = { lat: city.latitudeCity, lng: city.lengthCity }; // Centra mapa
     this.zoom = 10; 
   }
+<<<<<<< Updated upstream
 
 
   $cities=signal<City[]>([
@@ -69,4 +111,6 @@ export class ListarComponent implements OnInit{
     position:this.limaPosition
   }
   */
+=======
+>>>>>>> Stashed changes
 }
