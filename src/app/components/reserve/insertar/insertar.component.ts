@@ -36,7 +36,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './insertar.component.html',
   styleUrl: './insertar.component.css'
 })
-export class InsertarReserveComponent {
+export class InsertarReservaComponent {
   form: FormGroup = new FormGroup({});
   reserve: Reserve = new Reserve();
   listaActividades: Activity[] = [];
@@ -71,8 +71,9 @@ export class InsertarReserveComponent {
     this.cS.list().subscribe((d) => {
       this.listaCiudades = d;
     });
-    this.aS.list().subscribe((d) => {
-      this.listaActividades = d;
+    this.aS.list().subscribe((data) => {
+      this.listaActividades = data;
+      console.log(this.listaActividades)
     });
   }
   insertar(): void {
@@ -81,9 +82,9 @@ export class InsertarReserveComponent {
       this.reserve.dateReserve = this.form.value.hfecha;
       this.reserve.descriptionReserve = this.form.value.hdescripcion;
       this.reserve.hourReserve = this.form.value.hhora;
-      this.reserve.activity.descriptionActivity = this.form.value.hactivity;
+      this.reserve.activity.idActivity = this.form.value.hactivity;
       this.reserve.city.idCity = this.form.value.hciudad;
-
+      console.log(this.reserve);
       if (this.edicion) {
         //update
         this.rS.update(this.reserve).subscribe((data) => {
@@ -102,7 +103,7 @@ export class InsertarReserveComponent {
 
       /**/
     }
-    this.router.navigate(['reservas']);
+    //this.router.navigate(['reservas']);
   }
   init() {
     if (this.edicion) {

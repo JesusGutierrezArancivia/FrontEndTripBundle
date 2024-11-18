@@ -13,6 +13,9 @@
     <button mat-button [matMenuTriggerFor]="menuFlora" style="color: white">
       <mat-icon>menu</mat-icon>Flora
     </button>
+    <button mat-button [matMenuTriggerFor]="menuReserva" style="color: white">
+      <mat-icon>menu</mat-icon>Reserva
+    </button>
   </div>
   <div class="right-menu">
     <button mat-button [matMenuTriggerFor]="menuSalir" style="color: white">
@@ -35,6 +38,10 @@
 <mat-menu #menuFlora="matMenu">
   <button mat-menu-item routerLink="/floras">Listar floras</button>
   <button mat-menu-item routerLink="/floras/nuevo">Registrar floras</button>
+</mat-menu>
+<mat-menu #menuReserva="matMenu">
+  <button mat-menu-item routerLink="/reservas">Listar reserva</button>
+  <button mat-menu-item routerLink="/reservas/nuevo">Registrar reservas</button>
 </mat-menu>
 <mat-menu #menuSalir="matMenu">
   <button mat-menu-item routerLink="/login" (click)="cerrar()">

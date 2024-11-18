@@ -5,9 +5,11 @@ import { Component } from '@angular/core';
 import { InsertarCityComponent } from './components/city/insertar/insertar.component';
 import { InsertarFaunaComponent } from './components/fauna/insertar/insertar.component';
 import { InsertarFloraComponent } from './components/flora/insertar/insertar.component';
+import { InsertarReservaComponent } from './components/reserve/insertar/insertar.component';
 import { FaunaComponent } from './components/fauna/fauna.component';
 import { FloraComponent } from './components/flora/flora.component';
 import { ActivityComponent } from './components/activity/activity.component';
+import { ReserveComponent } from './components/reserve/reserve.component';
 import { InsertarActivityComponent } from './components/activity/insertar/insertar.component';
 import { seguridadGuard } from './guard/seguridad.guard';
 import { LoginComponent } from './components/login/login.component';
@@ -72,6 +74,20 @@ export const routes: Routes = [
             },
             {
                 path: 'ediciones/:id', component: InsertarFloraComponent
+            }
+        ],
+        canActivate: [seguridadGuard],
+
+    },
+    {
+        path: 'reservas',
+        component: ReserveComponent,
+        children: [
+            {
+                path: 'nuevo', component: InsertarReservaComponent
+            },
+            {
+                path: 'ediciones/:id', component: InsertarReservaComponent
             }
         ],
         canActivate: [seguridadGuard],

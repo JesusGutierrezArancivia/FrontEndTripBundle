@@ -1,6 +1,6 @@
 <div class="title-container">
     <div class="container" style="text-align: center;margin:5%">
-        <h1>Registro de Faunas</h1>
+        <h1>Registro de Reservas</h1>
     </div>
     <div class="container" style="text-align: center">
         <form [formGroup]="form" (submit)="insertar()">
@@ -17,28 +17,25 @@
                 <mat-hint>MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
-                <mat-error *ngIf="form.get('hfecha')?.hasError('required')"
-                >La fecha es obligatoria.</mat-error
-              >
-              </mat-form-field> 
-              <br />
+                <mat-error *ngIf="form.get('hfecha')?.hasError('required')">La fecha es obligatoria.</mat-error>
+            </mat-form-field>
+            <br />
 
             <mat-form-field class="example-full-width">
                 <mat-label>Descripción</mat-label>
                 <textarea matInput placeholder="Textarea" formControlName="hdescripcion"></textarea>
-                <mat-error *ngIf="form.get('hdescripcion')?.hasError('required')"
-                  >La descripción es obligatoria.</mat-error
-                >
-              </mat-form-field>
-              <br/>
+                <mat-error *ngIf="form.get('hdescripcion')?.hasError('required')">La descripción es
+                    obligatoria.</mat-error>
+            </mat-form-field>
+            <br />
 
-              <mat-form-field class="example-full-width">
+            <mat-form-field class="example-full-width">
                 <mat-label>Hora</mat-label>
                 <input matInput type="time" formControlName="hhora" />
                 <mat-error *ngIf="form.get('hhora')?.hasError('required')">
-                  La hora es obligatoria.
+                    La hora es obligatoria.
                 </mat-error>
-              </mat-form-field>
+            </mat-form-field>
 
             <mat-form-field class="example-full-width">
                 <mat-label>Actividad</mat-label>
