@@ -82,7 +82,7 @@ export class InsertarReservaComponent {
       this.reserve.dateReserve = this.form.value.hfecha;
       this.reserve.descriptionReserve = this.form.value.hdescripcion;
       this.reserve.hourReserve = this.form.value.hhora;
-      this.reserve.activity.idActivity = this.form.value.hactivity;
+      this.reserve.activity.idActivity = this.form.value.hactividad;
       this.reserve.city.idCity = this.form.value.hciudad;
       console.log(this.reserve);
       if (this.edicion) {
@@ -103,7 +103,7 @@ export class InsertarReservaComponent {
 
       /**/
     }
-    //this.router.navigate(['reservas']);
+    this.router.navigate(['reservas']);
   }
   init() {
     if (this.edicion) {
