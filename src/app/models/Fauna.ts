@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 export class Fauna {
     idFauna: number = 0;
     nameFauna: string = "";
@@ -5,4 +6,14 @@ export class Fauna {
     latitudeFauna: number = 0.0;
     lengthFauna: number = 0.0;
     stateFauna: string = "";
+=======
+export class Fauna {
+    idFauna: number = 0;
+    nameFauna: string = "";
+    familyFauna: string = "";
+    latitudeFauna: number = 0.0;
+    lengthFauna: number = 0.0;
+    stateFauna: string = "";
+    imageFauna:any;
+>>>>>>> MarcosDev
 }

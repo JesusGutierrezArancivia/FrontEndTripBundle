@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Component } from '@angular/core';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { ListarComponent } from './listar/listar.component';
@@ -16,6 +17,8 @@ export class FaunaComponent {
   }
 }
 =======
+=======
+>>>>>>> MarcosDev
 import { Component } from '@angular/core';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { ListarFaunaComponent } from './listar/listar.component';
@@ -32,4 +35,7 @@ export class FaunaComponent {
    
   }
 }
+<<<<<<< HEAD
+>>>>>>> MarcosDev
+=======
 >>>>>>> MarcosDev

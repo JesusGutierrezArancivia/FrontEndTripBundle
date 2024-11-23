@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Component, OnInit } from '@angular/core';
 import { City } from '../../../models/City';
 import {MatTableDataSource} from '@angular/material/table'
@@ -23,6 +24,8 @@ export class ListarComponent implements OnInit{
   }
 }
 =======
+=======
+>>>>>>> MarcosDev
 import { Component, OnInit, signal } from '@angular/core';
 import { City } from '../../../models/City';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
@@ -95,4 +98,7 @@ export class ListarComponent implements OnInit {
   }
   */
 }
+<<<<<<< HEAD
+>>>>>>> MarcosDev
+=======
 >>>>>>> MarcosDev

@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Component } from '@angular/core';
 
 @Component({
@@ -12,6 +13,8 @@ export class ListarComponent {
 
 }
 =======
+=======
+>>>>>>> MarcosDev
 import { Component, OnInit } from '@angular/core';
 import { Activity } from '../../../models/Activity';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table'
@@ -59,4 +62,7 @@ export class ListarActividadComponent implements OnInit{
     });
   }
 }
+<<<<<<< HEAD
+>>>>>>> MarcosDev
+=======
 >>>>>>> MarcosDev

@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CityComponent } from './components/city/city.component';
@@ -18,6 +19,8 @@ export class AppComponent {
   title = 'TripBundleProject';
 }
 =======
+=======
+>>>>>>> MarcosDev
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { CityComponent } from './components/city/city.component';
@@ -63,4 +66,7 @@ export class AppComponent {
     return this.role === 'ADMIN';
   }
 }
+<<<<<<< HEAD
+>>>>>>> MarcosDev
+=======
 >>>>>>> MarcosDev

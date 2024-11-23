@@ -2,17 +2,40 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Flora } from '../models/Flora';
-
+import { Subject } from 'rxjs';
 const base_url=environment.base
 
 @Injectable({
   providedIn: 'root'
 })
 export class FloraService {
-  private url=`${base_url}/floras`
-  constructor(private http:HttpClient) {}
+  private url = `${base_url}/floras`;
+  private listaCambio = new Subject<Flora[]>();
 
-  list(){
-    return this.http.get<Flora[]>(this.url)
+  constructor(private http: HttpClient) {}
+
+  list() {
+    return this.http.get<Flora[]>(this.url);
+  }
+  insert(f: Flora) {
+    return this.http.post(this.url, f);
+  }
+  getList() {
+    return this.listaCambio.asObservable();
+  }
+
+  setList(listaNueva: Flora[]) {
+    this.listaCambio.next(listaNueva);
+  }
+
+  delete(id: number) {
+    return this.http.delete(`${this.url}/${id}`);
+  }
+
+  listId(id: number) {
+    return this.http.get<Flora>(`${this.url}/${id}`);
+  }
+  update(fi: Flora) {
+    return this.http.put(this.url, fi);
   }
 }

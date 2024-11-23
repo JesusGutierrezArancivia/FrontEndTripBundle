@@ -1,8 +1,11 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [];
 =======
+=======
+>>>>>>> MarcosDev
 import { Routes } from '@angular/router';
 import { CityComponent } from './components/city/city.component';
 import path from 'path';
@@ -104,4 +107,7 @@ export const routes: Routes = [
         canActivate: [seguridadGuard],
     },
 ];
+<<<<<<< HEAD
+>>>>>>> MarcosDev
+=======
 >>>>>>> MarcosDev

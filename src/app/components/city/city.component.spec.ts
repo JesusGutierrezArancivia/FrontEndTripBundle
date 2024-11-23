@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CityComponent } from './city.component';
@@ -23,6 +24,8 @@ describe('CityComponent', () => {
   });
 });
 =======
+=======
+>>>>>>> MarcosDev
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CityComponent } from './city.component';
@@ -46,4 +49,7 @@ describe('CityComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+<<<<<<< HEAD
+>>>>>>> MarcosDev
+=======
 >>>>>>> MarcosDev

@@ -73,9 +73,20 @@ export class InsertarFloraComponent {
       this.flora.stateFlora = this.form.value.hestado;
       
       if (this.edicion) {
-       
+        //update
+        this.fS.update(this.flora).subscribe((data) => {
+          this.fS.list().subscribe((data) => {
+            this.fS.setList(data);
+          });
+        });
       } else {
-        
+        //insert
+        this.fS.insert(this.flora).subscribe((data) => {
+          console.log(data);
+          this.fS.list().subscribe((data) => {
+            this.fS.setList(data);
+          });
+        });
       }
 
       /**/
@@ -84,7 +95,19 @@ export class InsertarFloraComponent {
   }
   init() {
     if (this.edicion) {
-      
+      this.fS.listId(this.id).subscribe((data) => {
+        console.log(data);
+        this.form = new FormGroup({
+          hcodigo: new FormControl(data.idFlora),
+          hnombre: new FormControl(data.nameFlora),
+          hespecie: new FormControl(data.spicieFlora),
+          hfamilia: new FormControl(data.famimlyFlora),
+          hlatitud: new FormControl(data.latitudeFlora),
+          hlongitud: new FormControl(data.lengthFlora),
+          hestado: new FormControl(data.stateFlora),
+          
+        });
+      });
     }
   }
 }

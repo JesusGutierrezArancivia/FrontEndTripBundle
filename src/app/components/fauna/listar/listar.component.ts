@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Component } from '@angular/core';
 
 @Component({
@@ -12,6 +13,8 @@ export class ListarComponent {
 
 }
 =======
+=======
+>>>>>>> MarcosDev
 import { Component, OnInit } from '@angular/core';
 import { Fauna } from '../../../models/Fauna';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table'
@@ -66,4 +69,7 @@ export class ListarFaunaComponent implements OnInit{
     return this.role === 'TOURIST';
   }
 }
+<<<<<<< HEAD
+>>>>>>> MarcosDev
+=======
 >>>>>>> MarcosDev

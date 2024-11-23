@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Component } from '@angular/core';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { ListarComponent } from './listar/listar.component';
@@ -15,6 +16,8 @@ export class ActivityComponent {
   constructor(public route:ActivatedRoute){}
 }
 =======
+=======
+>>>>>>> MarcosDev
 import { Component } from '@angular/core';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { ListarActividadComponent } from './listar/listar.component';
@@ -30,4 +33,7 @@ export class ActivityComponent {
 
   constructor(public route:ActivatedRoute){}
 }
+<<<<<<< HEAD
+>>>>>>> MarcosDev
+=======
 >>>>>>> MarcosDev
