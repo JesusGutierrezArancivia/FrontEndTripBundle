@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div>
     <div><h1>Tabla City</h1></div>
     <div>
@@ -37,3 +38,41 @@
           
     </div>
 </div>
+=======
+<div class="main-container">
+  
+  <div class="card-container-city">
+    <h2>Lista de Ciudades</h2>
+    <mat-card *ngFor="let city of cities" class="city-card">
+      <mat-card-header>
+        <mat-card-title>{{ city.nameCity }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ city.provinceCity }}</p>
+        <br>
+        <p>{{ city.departmentCity }}</p>
+        <button (click)="showCityDetails(city)">Mostrar</button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+ 
+  <div class="map-container">
+    <google-map
+      mapId="5dbf226b9ef86a67"
+      height="100%"
+      width="100%"
+      [center]="center"
+      [zoom]="zoom">
+      
+      <map-advanced-marker *ngFor="let city of cities"
+        [position]="{ lat: city.latitudeCity, lng: city.lengthCity }">
+        <div class="marker-content">
+          <h4>{{ city.nameCity }}</h4>
+          <p>{{ city.provinceCity }}, {{ city.departmentCity }}</p>
+        </div>
+      </map-advanced-marker>
+      
+    </google-map>
+  </div>
+>>>>>>> MarcosDev
