@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Fauna } from '../../../models/Fauna';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table'
 import { FaunaService } from '../../../services/fauna.service';
+import { LoginService } from '../../../services/login.service';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { MatFormField } from '@angular/material/form-field';
@@ -26,8 +27,9 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 })
 export class ListarFaunaComponent implements OnInit{
   datasource: MatTableDataSource<Fauna> = new MatTableDataSource();
+  role: string = '';
 
-  constructor(private fS: FaunaService) {}
+  constructor(private fS: FaunaService,private loginService: LoginService) {}
   ngOnInit(): void {
     this.fS.list().subscribe((data) => {
       this.datasource = new MatTableDataSource(data);
@@ -43,5 +45,10 @@ export class ListarFaunaComponent implements OnInit{
         this.fS.setList(data);
       });
     });
+  }
+
+  isTourist() {
+    this.role = this.loginService.showRole();
+    return this.role === 'TOURIST';
   }
 }

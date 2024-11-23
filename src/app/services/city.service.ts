@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { City } from '../models/City';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 const base_url=environment.base
 
 @Injectable({
@@ -37,5 +37,8 @@ export class CityService {
   }
   update(ci: City) {
     return this.http.put(this.url, ci);
+  }
+  getCities(): Observable<City[]> {
+    return this.http.get<City[]>(this.url);
   }
 }

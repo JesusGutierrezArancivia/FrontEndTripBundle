@@ -25,7 +25,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 })
 export class ListarActividadComponent implements OnInit{
   datasource: MatTableDataSource<Activity> = new MatTableDataSource();
-  displayedColumns: string[] = ['c1', 'c2', 'c3', 'c4','accion01','accion02'];
+  displayedColumns: string[] = ['c1', 'c2', 'c4',];
 
   constructor(private aS: ActivityService) {}
   ngOnInit(): void {

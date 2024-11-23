@@ -1,11 +1,33 @@
-.card-container {
+
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+
+
+.main-container {
     display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    justify-content: center;
-  }
+    height: 100vh; /* Asegura que ocupe toda la altura de la ventana */
+}
   
-  .ciudad-card {
-    width: 300px;
-    margin: 8px;
-  }
+  
+.card-container-city {
+  width: 30%; /* Ancho del panel de información */
+  padding: 20px;
+  background-color: #f5f5f5;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.map-container {
+  width: 70%; /* Ancho del contenedor del mapa */
+  height: 100%; /* Asegura que el mapa ocupe toda la altura del contenedor */
+}
+
+.marker-content {
+  background-color: white;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
