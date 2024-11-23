@@ -3,7 +3,7 @@ import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Fauna } from '../models/Fauna';
 import { Subject } from 'rxjs';
-const base_url=environment.base
+const base_url = environment.base
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class FaunaService {
   private url = `${base_url}/faunas`;
   private listaCambio = new Subject<Fauna[]>();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   list() {
     return this.http.get<Fauna[]>(this.url);
@@ -38,4 +38,8 @@ export class FaunaService {
   update(ci: Fauna) {
     return this.http.put(this.url, ci);
   }
+  updateImage(id: number, image: FormData) {
+    return this.http.put<Fauna>(this.url + "/" + id.toString() + "/" + "image", image);
+  }
+
 }

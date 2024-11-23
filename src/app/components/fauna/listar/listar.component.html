@@ -13,6 +13,9 @@
         <p><strong>Latitud:</strong> {{ element.latitudeFauna }}</p>
         <p><strong>Longitud:</strong> {{ element.lengthFauna }}</p>
         <p><strong>Estado:</strong> {{ element.stateFauna }}</p>
+
+        <p><strong>Imagen:</strong><img [src]="element.imageFauna" width="50" height="50"></p>
+                   
       </mat-card-content>
       <mat-card-actions>
         <button mat-button color="primary" [routerLink]="['ediciones', element.idFauna]">

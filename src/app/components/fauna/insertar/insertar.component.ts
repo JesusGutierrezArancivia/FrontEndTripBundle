@@ -32,6 +32,7 @@ export class InsertarFaunaComponent {
   form: FormGroup = new FormGroup({});
   fauna: Fauna = new Fauna();
   id: number = 0;
+  fotoFauna: any = null;
   edicion: boolean = false;
   listaEstados: { value: string; viewValue: string }[] = [
     { value: 'Extincion', viewValue: 'Extincion' },
@@ -58,8 +59,12 @@ export class InsertarFaunaComponent {
       hlatitud: ['', Validators.required],
       hlongitud: ['', Validators.required],
       hestado: ['', Validators.required],
-      
+
     });
+  }
+  seleccionaFoto(event: any) {
+    this.fotoFauna = event.target.files[0];
+    console.log(this.fotoFauna);
   }
   insertar(): void {
     if (this.form.valid) {
@@ -69,7 +74,6 @@ export class InsertarFaunaComponent {
       this.fauna.latitudeFauna = this.form.value.hlatitud;
       this.fauna.lengthFauna = this.form.value.hlongitud;
       this.fauna.stateFauna = this.form.value.hestado;
-      
       if (this.edicion) {
         //update
         this.fS.update(this.fauna).subscribe((data) => {
@@ -79,7 +83,17 @@ export class InsertarFaunaComponent {
         });
       } else {
         //insert
-        this.fS.insert(this.fauna).subscribe((data) => {
+        this.fS.insert(this.fauna).subscribe((data:any) => {
+          console.log(data);
+          if (this.fotoFauna) {
+            const fotoFormData = new FormData();
+            fotoFormData.append("image", this.fotoFauna, this.fotoFauna.name);
+            //console.log(fotoFormData);
+            this.fS.updateImage(data.idFauna, fotoFormData).subscribe({
+             
+            });
+          }
+
           this.fS.list().subscribe((data) => {
             this.fS.setList(data);
           });
@@ -101,7 +115,7 @@ export class InsertarFaunaComponent {
           hlatitud: new FormControl(data.latitudeFauna),
           hlongitud: new FormControl(data.lengthFauna),
           hestado: new FormControl(data.stateFauna),
-          
+
         });
       });
     }
